@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}聊天 · 冰箱食材管家{% endblock %}
+
+{% block content %}
+<section class="chat-shell">
+  <div id="messages" class="messages">
+    <div class="msg assistant">
+      <div class="bubble">
+        你好，我是冰箱食材管家。你可以问我「冰箱里还有什么」「今晚两个人吃，忌辣，推荐三道菜」，也可以说「把主菜换成鱼」。
+      </div>
+    </div>
+  </div>
+
+  <div class="composer">
+    <button id="voiceBtn" class="ghost" type="button" title="语音输入">🎙️</button>
+    <textarea id="message" rows="1" placeholder="例如：今晚两个人吃，忌辣，用现有食材推荐三道菜"></textarea>
+    <button id="sendBtn" type="button">发送</button>
+  </div>
+
+  <label class="speak-toggle">
+    <input type="checkbox" id="speakToggle" /> 朗读 Agent 回复
+  </label>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/chat.js"></script>
+{% endblock %}
