@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}菜谱 · 冰箱食材管家{% endblock %}
+
+{% block content %}
+<h1>菜谱搜索</h1>
+<form method="get" action="/recipes" class="inline-form">
+  <input name="q" value="{{ q }}" placeholder="菜名或食材，如 chicken / egg / tomato" />
+  <button type="submit">搜索</button>
+</form>
+
+{% if warning %}<p class="warning">{{ warning }}</p>{% endif %}
+{% if source %}<p class="muted">数据来源：{{ source }}</p>{% endif %}
+
+<div class="cards">
+{% for recipe in recipes %}
+  <article class="card">
+    <h3>{{ recipe.name }}</h3>
+    <p class="muted">{{ recipe.category }} · {{ recipe.area }}</p>
+    <ul class="ingredients">
+      {% for ing in recipe.ingredients %}
+      <li>{{ ing.name }} {{ ing.measure }}</li>
+      {% endfor %}
+    </ul>
+  </article>
+{% else %}
+  {% if q %}<p>没有找到相关菜谱。</p>{% endif %}
+{% endfor %}
+</div>
+{% endblock %}
