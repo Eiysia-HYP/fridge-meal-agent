@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}冰箱食材管家{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/chat">🧊 冰箱食材管家</a>
+    <nav>
+      <a href="/chat">聊天</a>
+      <a href="/inventory">库存</a>
+      <a href="/recipes">菜谱</a>
+    </nav>
+  </header>
+  <main class="page">{% block content %}{% endblock %}</main>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
